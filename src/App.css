@@ -1,0 +1,271 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: #02030a;
+  font-family:
+    "Cinzel",
+    Georgia,
+    serif;
+}
+
+.app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background:
+    url("/cosmic2-bg.jpg")
+    center center /
+    cover
+    no-repeat;
+}
+
+.app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 25%,
+      rgba(0, 0, 0, 0.35) 100%
+    );
+
+  z-index: 1;
+}
+
+.three-container {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.three-container canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.title-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+
+  pointer-events: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: flex-start;
+
+  padding-top: 23vh;
+
+  color: white;
+
+  text-align: center;
+}
+
+.msa-title {
+  opacity: 0;
+
+  transform: translateY(30px);
+
+  font-size: clamp(
+    2rem,
+    4vw,
+    4rem
+  );
+
+  font-weight: 500;
+
+  letter-spacing: 0.55em;
+
+  margin-left: 0.55em;
+
+  text-shadow:
+    0 0 15px
+      rgba(170, 255, 245, 0.8),
+    0 0 45px
+      rgba(100, 220, 210, 0.35);
+}
+
+.pandora-title {
+  opacity: 0;
+
+  transform: translateY(35px);
+
+  margin-top: 0.05em;
+
+  font-size: clamp(
+    3.5rem,
+    9vw,
+    8rem
+  );
+
+  font-weight: 500;
+
+  letter-spacing: 0.14em;
+
+  margin-left: 0.14em;
+
+  line-height: 0.95;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #d7fff5 45%,
+      #8ccbc1 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  text-shadow:
+    0 0 20px
+      rgba(150, 255, 245, 0.4);
+}
+
+.subtitle {
+  opacity: 0;
+
+  transform: translateY(25px);
+
+  margin-top: 1.4rem;
+
+  font-family:
+    "Inter",
+    Arial,
+    sans-serif;
+
+  font-size: clamp(
+    0.65rem,
+    1.2vw,
+    0.9rem
+  );
+
+  letter-spacing: 0.42em;
+
+  margin-left: 0.42em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(220, 250, 246, 0.72);
+}
+
+.interaction {
+  position: absolute;
+
+  bottom: 7vh;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  z-index: 6;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  color:
+    rgba(220, 255, 250, 0.7);
+
+  pointer-events: none;
+
+  text-align: center;
+
+  animation:
+    interactionPulse
+    2.2s
+    ease-in-out
+    infinite;
+}
+
+.interaction span {
+  font-size: 1.4rem;
+
+  text-shadow:
+    0 0 12px
+      rgba(170, 255, 245, 0.8);
+}
+
+.interaction p {
+  margin: 0.45rem 0 0;
+
+  font-family:
+    Arial,
+    sans-serif;
+
+  font-size: 0.7rem;
+
+  letter-spacing: 0.3em;
+
+  text-transform: uppercase;
+}
+
+@keyframes interactionPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 700px) {
+  .title-layer {
+    padding-top: 20vh;
+  }
+
+  .msa-title {
+    font-size: 1.7rem;
+    letter-spacing: 0.4em;
+    margin-left: 0.4em;
+  }
+
+  .pandora-title {
+    font-size: clamp(
+      3rem,
+      16vw,
+      5rem
+    );
+
+    letter-spacing: 0.08em;
+    margin-left: 0.08em;
+  }
+
+  .subtitle {
+    max-width: 85vw;
+
+    font-size: 0.55rem;
+
+    line-height: 1.8;
+
+    letter-spacing: 0.25em;
+
+    margin-left: 0.25em;
+  }
+
+  .interaction {
+    bottom: 5vh;
+  }
+}
